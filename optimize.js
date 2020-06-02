@@ -1,7 +1,7 @@
 const express = require('express');
 const httpproxy = require('http-proxy');
 
-const EXPENSIVE_SERVER = 'http://localhost:8888';
+const EXPENSIVE_SERVER = process.env.EXPENSIVE_SERVER || 'http://localhost:8088';
 
 const app = express();
 const proxyor = httpproxy.createProxyServer({});
