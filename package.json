@@ -5,6 +5,10 @@
   "repository": "git@github.com:wuchengyu/proxy-server.git",
   "author": "Yu@macbook-pro <jvyu59jvyu@icloud.com>",
   "license": "MIT",
+  "scripts": {
+    "run-exp": "node expensive.js",
+    "run-opt": "node optimize.js"
+  },
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
