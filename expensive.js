@@ -6,4 +6,8 @@ app.get('/expensive', (req, res) => {
   res.send('This is an expensive api.')
 })
 
+app.get('/other', (req, res) => {
+  res.send('This is other api.')
+})
+
 app.listen(process.env.PORT || 8087)
