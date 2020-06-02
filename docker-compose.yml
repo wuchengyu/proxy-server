@@ -1,0 +1,19 @@
+version: '3'
+services:
+  expensive:
+    container_name: expensive
+    build: .
+    command: yarn run-exp
+    environment: 
+      - PORT=80
+  optimize:
+    container_name: optimize
+    build: .
+    command: yarn run-opt
+    ports: 
+      - 8087:80
+    environment: 
+      - EXPENSIVE_SERVER=http://expensive
+      - PORT=80
+    links: 
+      - expensive:expensive
