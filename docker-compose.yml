@@ -10,10 +10,18 @@ services:
     container_name: optimize
     build: .
     command: yarn run-opt
+    environment: 
+      - PORT=80
+  nginx:
+    container_name: nginx
+    image: nginx:1.19.0-alpine
+    volumes: 
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports: 
       - 8087:80
-    environment: 
-      - EXPENSIVE_SERVER=http://expensive
-      - PORT=80
+    environment:
+      - NGINX_HOST=nginx
+      - NGINX_PORT=80
     links: 
+      - optimize:optimize
       - expensive:expensive
